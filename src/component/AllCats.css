@@ -1,0 +1,15 @@
+.table-drinks{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.item-drink{
+    width: 200px;
+    height: 200px;
+}
+
+.img-drinks{
+    width: inherit;
+    height: inherit;
+}
