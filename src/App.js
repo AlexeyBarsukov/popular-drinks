@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import {AllCats} from './component/AllCats';
-import FavoriteCats from './component/FavoriteCats';
+import {AllDrinks} from './component/AllDrinks';
+import FavoriteDrinks from './component/FavoriteDrinks';
 import LayoutMenu from './Layouts/LayoutMenu'
 
 
@@ -10,8 +10,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LayoutMenu />}>
-          <Route index element={<AllCats />} />
-          <Route path="/favoriteCats" element={<FavoriteCats />} />
+          <Route index element={<AllDrinks />} />
+          <Route path="/favorite" element={<FavoriteDrinks />} />
         </Route>
       </Routes>
     </>

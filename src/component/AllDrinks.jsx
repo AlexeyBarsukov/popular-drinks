@@ -1,7 +1,7 @@
-import "./AllCats.css";
+import "./AllDrinks.css";
 import {useEffect, useState} from "react";
 
-export const AllCats = () => {
+export const AllDrinks = () => {
   const REACT_APP_URL="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
   const [state, setState] = useState(null);
   const [btn, setBtn] = useState([]);
@@ -60,12 +60,13 @@ export const AllCats = () => {
   return (
       <>
         <div>
-          <h1>Список всех напитков</h1>
+          <h1>Выбери любой напиток</h1>
           <div>
             <div className="table-drinks">
               {state && state.drinks.map((drink) =>(
                   <div className="item-drink" key={drink.idDrink}>
                     <img className="img-drinks" src={drink.strDrinkThumb} alt={''}/>
+                      <h5>{drink.strDrink}</h5>
                       <button key={drink.idDrink}
                               id={drink.idDrink}
                               className={`btn ${btn && btn.includes(drink.idDrink) ? 'btn-danger' : 'btn-success'}`}

@@ -19,7 +19,7 @@ const LayoutMenu = () => {
           Посмотреть список напитков
         </NavLink>
         <NavLink
-          to="/favoriteCats"
+          to="/favorite"
           end={true}
           className={({ isActive }) =>
             isActive
