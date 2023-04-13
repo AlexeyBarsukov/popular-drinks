@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const FavoriteCats = () => {
+const FavoriteDrinks = () => {
   const [stateStorageFavorites, setStateStorageFavorites] = useState(() => localStorage.getItem('favoritesDrinks'))
   const [stateFavorite, setStateFavorite] = useState([])
   const [state, setState] = useState(null);
@@ -25,16 +25,14 @@ const FavoriteCats = () => {
     const storageData = localStorage.getItem('favoritesDrinks');
 
     if (storageData) {
-      // Преобразуем данные из строки JSON в массив
+
       const favoritesDrinks = JSON.parse(storageData);
 
-      // Удаляем переданный ID из массива
+
       const updatedFavorites = favoritesDrinks.filter(drinkId => drinkId !== id);
 
-      // Обновляем данные в localStorage
       localStorage.setItem('favoritesDrinks', JSON.stringify(updatedFavorites));
 
-      // Обновляем состояние stateFavorite, чтобы отобразить изменения на странице
       setStateFavorite(updatedFavorites);
     }
   }
@@ -42,10 +40,12 @@ const FavoriteCats = () => {
 
   return (
       <div>
+        <h1>Список твоих самых любимых напитков</h1>
         <div className="table-drinks">
           {state && state.drinks.filter(drink => stateFavorite.includes(drink.idDrink)).map((drink) =>(
               <div className="item-drink" key={drink.idDrink}>
                 <img className="img-drinks" src={drink.strDrinkThumb} alt={''}/>
+                <h5>{drink.strDrink}</h5>
                 <button id={drink.idDrink} className='btn btn-danger' onClick={()=>removingFavoritesDrinksFromLocalStorage(drink.idDrink)}>Удалить из избранного</button>
               </div>
           ))}
@@ -53,4 +53,4 @@ const FavoriteCats = () => {
       </div>
   )
 };
-export default FavoriteCats;
+export default FavoriteDrinks;
