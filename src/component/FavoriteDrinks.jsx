@@ -21,18 +21,11 @@ const FavoriteDrinks = () => {
   },[])
 
   const removingFavoritesDrinksFromLocalStorage = (id) => {
-    // Получаем данные из localStorage
     const storageData = localStorage.getItem('favoritesDrinks');
-
     if (storageData) {
-
       const favoritesDrinks = JSON.parse(storageData);
-
-
       const updatedFavorites = favoritesDrinks.filter(drinkId => drinkId !== id);
-
       localStorage.setItem('favoritesDrinks', JSON.stringify(updatedFavorites));
-
       setStateFavorite(updatedFavorites);
     }
   }
