@@ -4,9 +4,6 @@ const FavoriteDrinks = () => {
   const [stateStorageFavorites, setStateStorageFavorites] = useState(() => localStorage.getItem('favoritesDrinks'))
   const [stateFavorite, setStateFavorite] = useState([])
   const [state, setState] = useState(null);
-  console.log('стейт фаворитов', state);
-  console.log('массив должен быть из ID', stateFavorite);
-
   const REACT_APP_URL="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
 
   useEffect(()=>{
