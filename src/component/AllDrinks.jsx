@@ -6,7 +6,6 @@ export const AllDrinks = () => {
   const [state, setState] = useState(null);
   const [btn, setBtn] = useState([]);
   const [stateStorage, setStateStorage] = useState(() => localStorage.getItem('favoritesDrinks'))
-    console.log('state  btn', btn)
     useEffect(() => {
        async function getAllDrinks() {
             const response = await fetch(REACT_APP_URL);
@@ -40,18 +39,15 @@ export const AllDrinks = () => {
     }
 
     const handleFavoriteDrinks = (id) => {
-      console.log('just id', id);
       if(!btn.includes(id)) {
           setBtn((prevID) => [...prevID, id]);
           addingFavoritesDrinksInLocalStorage(id)
       }
       else {
-          console.log('id уже лежит там')
           const filterID = btn.filter((item) => item !== id)
           setBtn(filterID)
           removingFavoritesDrinksInLocalStorage(id)
       }
-      console.log("массив ID", btn);
     }
 
 
